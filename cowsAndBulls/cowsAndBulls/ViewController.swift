@@ -38,7 +38,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if(isValid(guess: guessField.stringValue)) {
             guesses.append(guessField.stringValue)
             tableView.reloadData()
-            guessField.stringValue = ""
             if getScore(for: guessField.stringValue).contains("4b") {
                 let alert = NSAlert()
                 alert.messageText = "Game over!"
@@ -52,6 +51,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                     exit(0)
                 }
             }
+            guessField.stringValue = ""
         }
     }
     
