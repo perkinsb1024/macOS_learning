@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD8DBB3D1F20353900EE48A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DBB3C1F20353900EE48A4 /* AppDelegate.swift */; };
+		DD8DBB3F1F20353900EE48A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DBB3E1F20353900EE48A4 /* ViewController.swift */; };
+		DD8DBB411F20353900EE48A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8DBB401F20353900EE48A4 /* Assets.xcassets */; };
+		DD8DBB441F20353900EE48A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8DBB421F20353900EE48A4 /* Main.storyboard */; };
+		DD8DBB4F1F20383800EE48A4 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8DBB4D1F20383800EE48A4 /* GameplayKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD8DBB391F20353900EE48A4 /* cowsAndBulls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cowsAndBulls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8DBB3C1F20353900EE48A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD8DBB3E1F20353900EE48A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD8DBB401F20353900EE48A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD8DBB431F20353900EE48A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD8DBB451F20353900EE48A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD8DBB4C1F20383800EE48A4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		DD8DBB4D1F20383800EE48A4 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD8DBB361F20353900EE48A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8DBB4F1F20383800EE48A4 /* GameplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD8DBB301F20353900EE48A4 = {
+			isa = PBXGroup;
+			children = (
+				DD8DBB3B1F20353900EE48A4 /* cowsAndBulls */,
+				DD8DBB3A1F20353900EE48A4 /* Products */,
+				DD8DBB4B1F20383800EE48A4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD8DBB3A1F20353900EE48A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD8DBB391F20353900EE48A4 /* cowsAndBulls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD8DBB3B1F20353900EE48A4 /* cowsAndBulls */ = {
+			isa = PBXGroup;
+			children = (
+				DD8DBB3C1F20353900EE48A4 /* AppDelegate.swift */,
+				DD8DBB3E1F20353900EE48A4 /* ViewController.swift */,
+				DD8DBB401F20353900EE48A4 /* Assets.xcassets */,
+				DD8DBB421F20353900EE48A4 /* Main.storyboard */,
+				DD8DBB451F20353900EE48A4 /* Info.plist */,
+			);
+			path = cowsAndBulls;
+			sourceTree = "<group>";
+		};
+		DD8DBB4B1F20383800EE48A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD8DBB4C1F20383800EE48A4 /* GameKit.framework */,
+				DD8DBB4D1F20383800EE48A4 /* GameplayKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD8DBB381F20353900EE48A4 /* cowsAndBulls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8DBB481F20353900EE48A4 /* Build configuration list for PBXNativeTarget "cowsAndBulls" */;
+			buildPhases = (
+				DD8DBB351F20353900EE48A4 /* Sources */,
+				DD8DBB361F20353900EE48A4 /* Frameworks */,
+				DD8DBB371F20353900EE48A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cowsAndBulls;
+			productName = cowsAndBulls;
+			productReference = DD8DBB391F20353900EE48A4 /* cowsAndBulls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD8DBB311F20353900EE48A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Ben Perkins";
+				TargetAttributes = {
+					DD8DBB381F20353900EE48A4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DD8DBB341F20353900EE48A4 /* Build configuration list for PBXProject "cowsAndBulls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD8DBB301F20353900EE48A4;
+			productRefGroup = DD8DBB3A1F20353900EE48A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD8DBB381F20353900EE48A4 /* cowsAndBulls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD8DBB371F20353900EE48A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8DBB411F20353900EE48A4 /* Assets.xcassets in Resources */,
+				DD8DBB441F20353900EE48A4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD8DBB351F20353900EE48A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8DBB3F1F20353900EE48A4 /* ViewController.swift in Sources */,
+				DD8DBB3D1F20353900EE48A4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD8DBB421F20353900EE48A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD8DBB431F20353900EE48A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD8DBB461F20353900EE48A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD8DBB471F20353900EE48A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		DD8DBB491F20353900EE48A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = cowsAndBulls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.benperkins.cowsAndBulls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DD8DBB4A1F20353900EE48A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = cowsAndBulls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.benperkins.cowsAndBulls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD8DBB341F20353900EE48A4 /* Build configuration list for PBXProject "cowsAndBulls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8DBB461F20353900EE48A4 /* Debug */,
+				DD8DBB471F20353900EE48A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8DBB481F20353900EE48A4 /* Build configuration list for PBXNativeTarget "cowsAndBulls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8DBB491F20353900EE48A4 /* Debug */,
+				DD8DBB4A1F20353900EE48A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD8DBB311F20353900EE48A4 /* Project object */;
+}
