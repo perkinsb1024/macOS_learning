@@ -9,9 +9,11 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController, WKNavigationDelegate {
+class ViewController: NSViewController, WKNavigationDelegate, NSGestureRecognizerDelegate {
     
     var rows: NSStackView!
+    var selectedWebView: WKWebView?
+    let homepages = ["https://www.apple.com", "https://www.google.com", "https://news.google.com", "https://en.wikipedia.org", "https://www.amazon.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +35,17 @@ class ViewController: NSViewController, WKNavigationDelegate {
         rows.addArrangedSubview(columns)
  
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        guard let windowController = webView.window?.windowController as? WindowController else { return }
+        
+        if webView == selectedWebView {
+            windowController.urlBar.stringValue = webView.url?.absoluteString ?? ""
         }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer, shouldAttemptToRecognizeWith event: NSEvent) -> Bool {
+        return gestureRecognizer.view as? WKWebView != selectedWebView
     }
     
     @IBAction func rowButtonClicked(_ sender: NSSegmentedControl) {
@@ -77,27 +85,61 @@ class ViewController: NSViewController, WKNavigationDelegate {
     }
 
     @IBAction func urlBarChanged(_ sender: NSTextField) {
-        
+        guard selectedWebView != nil else { return }
+        guard let urlBar = (selectedWebView!.window?.windowController as? WindowController)?.urlBar else { return }
+        var urlString = urlBar.stringValue
+        urlString = urlString.replacingOccurrences(of: "http:", with: "https:")
+        if !urlString.contains("https:") {
+            urlString = "https://" + urlString
+        }
+        guard let url = URL(string: urlString) else { return }
+        selectedWebView!.load(URLRequest(url: url))
     }
     
     @IBAction func navButtonClicked(_ sender: NSSegmentedControl) {
+        guard selectedWebView != nil else { return }
         switch sender.selectedSegment {
         case 0:
-            print("Go back")
+            selectedWebView!.goBack()
         case 1:
-            print("Go forward")
+            selectedWebView!.goForward()
         default:
             break
         }
     }
     
     func makeWebView() -> WKWebView {
+        let url = homepages[Int(arc4random_uniform(UInt32(homepages.count)))]
         let webView = WKWebView()
         webView.navigationDelegate = self
         webView.wantsLayer = true
-        webView.load(URLRequest(url: URL(string: "https://www.apple.com/")!))
+        webView.load(URLRequest(url: URL(string: url)!))
+        
+        let clickRecognizer = NSClickGestureRecognizer(target: self, action: #selector(handleClick))
+        clickRecognizer.delegate = self
+        webView.addGestureRecognizer(clickRecognizer)
+        
+        if selectedWebView == nil {
+            selectWebView(webView)
+        }
         
         return webView
+    }
+    
+    func selectWebView(_ webView: WKWebView) {
+        selectedWebView?.layer?.borderWidth = 0
+        
+        webView.layer?.borderWidth = 4
+        webView.layer?.borderColor = NSColor.blue.cgColor
+        selectedWebView = webView
+        
+        let urlBar = (selectedWebView?.window?.windowController as? WindowController)?.urlBar
+        urlBar?.stringValue = webView.url?.absoluteString ?? ""
+    }
+    
+    func handleClick(_ sender: NSClickGestureRecognizer) {
+        guard let _ = sender.view as? WKWebView else { return }
+        selectWebView(sender.view as! WKWebView)
     }
 }
 
