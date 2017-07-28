@@ -17,7 +17,6 @@ class PhotoItem: NSCollectionViewItem {
         // Do view setup here.
         view.wantsLayer = true
         view.layer?.borderColor = NSColor.blue.cgColor
-        view.layer?.backgroundColor = NSColor.red.cgColor
     }
     
     override var isSelected: Bool {
