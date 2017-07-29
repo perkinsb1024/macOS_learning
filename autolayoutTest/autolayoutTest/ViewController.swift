@@ -30,7 +30,10 @@ class ViewController: NSViewController {
             case .stack:
             createStackview()
             case .grid:
-            createGridview()
+            if #available(OSX 10.12, *) {
+                self.createGridview()
+            }
+            break
         }
     }
     
@@ -89,7 +92,7 @@ class ViewController: NSViewController {
         view.addSubview(stackView)
         
         stackView.orientation = .vertical
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -97,21 +100,47 @@ class ViewController: NSViewController {
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        stackView.setContentHuggingPriority(1, for: .horizontal)
-        stackView.setContentHuggingPriority(1, for: .vertical)
-        stackView.setContentCompressionResistancePriority(1, for: .horizontal)
-        stackView.setContentCompressionResistancePriority(1, for: .vertical)
     }
     
+    @available(OSX 10.12, *)
     func createGridview() {
         let empty = NSGridCell.emptyContentView
         let gridView = NSGridView(views: [
         [makeView(with: 0)],
-        [makeView(with: 1), makeView(with: 2)],
+        [makeView(with: 1), empty, makeView(with: 2)],
         [makeView(with: 3), makeView(with: 4), makeView(with: 5), makeView(with: 6)],
-        [makeView(with: 7), makeView(with: 8)],
+        [makeView(with: 7), empty, makeView(with: 8)],
         [makeView(with: 9)]
         ])
+        
+        view.addSubview(gridView)
+        
+        gridView.translatesAutoresizingMaskIntoConstraints = false
+        gridView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        gridView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        gridView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        gridView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        for r in 0..<gridView.numberOfRows {
+            let row = gridView.row(at: r)
+            row.height = 32
+            row.yPlacement = .center
+            switch r {
+            case 0, 4:
+                row.mergeCells(in: NSRange(location: 0, length: 4))
+            case 1, 3:
+                row.mergeCells(in: NSRange(location: 0, length: 2))
+                row.mergeCells(in: NSRange(location: 2, length: 2))
+            default:
+                break
+            }
+        }
+        
+        for c in 0..<gridView.numberOfColumns {
+            let column = gridView.column(at: c)
+            column.width = 128
+            column.xPlacement = .center
+        }
     }
     
 }
