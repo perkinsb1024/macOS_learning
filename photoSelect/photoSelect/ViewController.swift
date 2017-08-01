@@ -93,8 +93,21 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     }
     
     func performInternalDrag(with items: [IndexPath]?, at index: IndexPath) {
-        guard items != nil else { return }
+        guard let items = items else { return }
+        var newIndex = index
+        var moveItems = [URL]()
+        for item in items.reversed() {
+            if item.item < index.item {
+                newIndex.item -= 1
+            }
+            moveItems.append(photos[item.item])
+            photos.remove(at: item.item)
+        }
+        photos.insert(contentsOf: moveItems.reversed(), at: newIndex.item)
+
+        //photoCollectionView.insertItems(at: [index])
         
+        photoCollectionView.reloadData()
     }
 
     func performExternalDrag(with items: [NSPasteboardItem], at index: IndexPath) {
