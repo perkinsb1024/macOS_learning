@@ -12,6 +12,7 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
 
     @IBOutlet var photoCollectionView: NSCollectionView!
     var photos = [URL]()
+    var itemsBeingDragged: Set<IndexPath>?
     let validExtensions = ["jpg", "jpeg", "gif", "png"]
     lazy var photosPath: URL = {
         let fm = FileManager.default
@@ -28,8 +29,8 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         photoCollectionView.wantsLayer = true
-        photoCollectionView.layer?.backgroundColor = NSColor.brown.cgColor
-        
+        photoCollectionView.register(forDraggedTypes: [kUTTypeURL as String])
+
         do {
             let fm = FileManager.default
             let files = try fm.contentsOfDirectory(at: photosPath, includingPropertiesForKeys: nil)
@@ -65,6 +66,60 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         return photoItem
     }
 
+    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation {
+        return .move
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
+        
+        itemsBeingDragged = indexPaths
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
+        
+        itemsBeingDragged = nil
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionViewDropOperation) -> Bool {
+        if let moveItems = itemsBeingDragged?.sorted() {
+            performInternalDrag(with: moveItems, at: indexPath)
+        }
+        else {
+            let pasteboard = draggingInfo.draggingPasteboard()
+            guard let items = pasteboard.pasteboardItems else { return true }
+            performExternalDrag(with: items, at: indexPath)
+        }
+        return true
+    }
+    
+    func performInternalDrag(with items: [IndexPath]?, at index: IndexPath) {
+        guard items != nil else { return }
+        
+    }
 
+    func performExternalDrag(with items: [NSPasteboardItem], at index: IndexPath) {
+        print("External Drag for \(items), at \(index)")
+        let fm = FileManager.default
+        for item in items {
+            guard let stringUrl = item.string(forType: kUTTypeFileURL as String) else { continue }
+            guard let source = URL(string: stringUrl) else { continue }
+            let destination = photosPath.appendingPathComponent(source.lastPathComponent)
+            
+            do {
+                try fm.copyItem(at: source, to: destination)
+            }
+            catch {
+                print("Could not copy \(source)")
+            }
+            photos.insert(destination, at: index.item)
+            photoCollectionView.insertItems(at: [index])
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
+        
+        return photos[indexPath.item] as NSPasteboardWriting?
+    }
 }
 
