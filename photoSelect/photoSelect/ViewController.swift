@@ -106,8 +106,11 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         photos.insert(contentsOf: moveItems.reversed(), at: newIndex.item)
 
         //photoCollectionView.insertItems(at: [index])
+        DispatchQueue.main.async {
+            //self.photoCollectionView.reloadData()
+            self.photoCollectionView.reloadItems(at: self.photoCollectionView.indexPathsForVisibleItems())
+        }
         
-        photoCollectionView.reloadData()
     }
 
     func performExternalDrag(with items: [NSPasteboardItem], at index: IndexPath) {
@@ -133,6 +136,23 @@ class ViewController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
         
         return photos[indexPath.item] as NSPasteboardWriting?
+    }
+    
+    override func keyUp(with event: NSEvent) {
+        guard photoCollectionView.selectionIndexes.count > 0 else { return }
+        guard event.charactersIgnoringModifiers == String(UnicodeScalar(NSDeleteCharacter)!) else { return }
+        
+        let fm = FileManager.default
+        for index in photoCollectionView.selectionIndexes.sorted().reversed() {
+            do {
+                try fm.trashItem(at: photos[index], resultingItemURL: nil)
+                photos.remove(at: index)
+            }
+            catch {
+                print("Failed to delete photo")
+            }
+        }
+        photoCollectionView.animator().deleteItems(at: photoCollectionView.selectionIndexPaths)
     }
 }
 
