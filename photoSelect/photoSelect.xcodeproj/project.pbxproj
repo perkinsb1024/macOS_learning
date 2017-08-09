@@ -13,6 +13,7 @@
 		DD25834C1F2A504100EB76A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD25834A1F2A504100EB76A5 /* Main.storyboard */; };
 		DD2583551F2A50EA00EB76A5 /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2583531F2A50EA00EB76A5 /* PhotoItem.swift */; };
 		DD2583561F2A50EA00EB76A5 /* PhotoItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2583541F2A50EA00EB76A5 /* PhotoItem.xib */; };
+		DD7AC6691F3A990400354A0E /* black.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD7AC6681F3A990400354A0E /* black.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DD25834D1F2A504100EB76A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD2583531F2A50EA00EB76A5 /* PhotoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		DD2583541F2A50EA00EB76A5 /* PhotoItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoItem.xib; sourceTree = "<group>"; };
+		DD7AC6681F3A990400354A0E /* black.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = black.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				DD25834A1F2A504100EB76A5 /* Main.storyboard */,
 				DD2583531F2A50EA00EB76A5 /* PhotoItem.swift */,
 				DD2583541F2A50EA00EB76A5 /* PhotoItem.xib */,
+				DD7AC6681F3A990400354A0E /* black.mp4 */,
 				DD25834D1F2A504100EB76A5 /* Info.plist */,
 			);
 			path = photoSelect;
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2583561F2A50EA00EB76A5 /* PhotoItem.xib in Resources */,
+				DD7AC6691F3A990400354A0E /* black.mp4 in Resources */,
 				DD2583491F2A504100EB76A5 /* Assets.xcassets in Resources */,
 				DD25834C1F2A504100EB76A5 /* Main.storyboard in Resources */,
 			);
@@ -294,6 +298,7 @@
 				DD2583521F2A504100EB76A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
